@@ -1,10 +1,13 @@
 package com.j2gsoft.junitassertions;
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 //@DisplayNameGeneration(DisplayNameGenerator.Simple.class)
+//@TestMethodOrder(MethodOrderer.Random.class) //order all the test ramdonly there are others options to order. by default is deterministic noneobvious
 class DemoUtilsTest {
 
     DemoUtils du;
@@ -22,6 +25,14 @@ class DemoUtilsTest {
 
        assertEquals(6,du.add(2,4),"2+4 must be 6");
        assertNotEquals(6,du.add(2,5),"2+5 must not be 6");
+    }
+
+    @Test
+    @DisplayName("Multiply")
+    void multiply(){
+
+        assertEquals(8,du.multiply(2,4),"2*4 must be 8");
+        assertNotEquals(6,du.multiply(2,5),"2*5 must not be 6");
     }
 
     @Test
@@ -73,6 +84,20 @@ class DemoUtilsTest {
     void lineMatch(){
         List<String> theList = List.of("j2g", "soft", "academy");
         assertLinesMatch(theList,du.getAcademyInList(), "Lines should match");
+    }
+
+    @Test
+    @DisplayName("Throws and Does not Throw")
+    void throwAndDoesNotThrow(){
+        assertThrows(Exception.class, () -> {du.throwException(-1);},"should throw exception");
+
+        assertDoesNotThrow(() -> {du.throwException(5);},"should not throw exception");
+    }
+
+    @Test
+    @DisplayName("Timeout")
+    void timeOut(){
+      assertTimeoutPreemptively(Duration.ofSeconds(3),() -> {du.checkTimeout();}, "Method should execute in 3 seconds");
     }
 
 

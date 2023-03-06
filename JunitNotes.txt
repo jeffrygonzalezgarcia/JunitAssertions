@@ -1,1 +1,7 @@
- on -> cap 17 
+
+
+to copy on the clipboard github public key.
+clip < ~/.ssh/id_rsa.pub
+
+
+Generate test report with maven from the command line
