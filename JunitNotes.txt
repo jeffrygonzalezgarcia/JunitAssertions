@@ -5,3 +5,26 @@ clip < ~/.ssh/id_rsa.pub
 
 
 Generate test report with maven from the command line
+
+
+generate report from mvn console 
+
+commands 
+
+mvn clean test
+
+mvn site -DgenerateReport=false 
+
+-DgenerateReport add website resources image, css, etc.
+= false says dont overwrite existing html file 
+
+Agregar todas las dependencias necesarios del mvn site y reports info.
+
+   <testFailureIgnore>true</testFailureIgnore> this generate report page no matter if test pass or fail
+   
+   maven.apache.org/surefire Here i can  get information for refactor method names in the report page
+   https://maven.apache.org/surefire/maven-surefire-plugin/examples/junit-platform.html
+   Surefire Extensions and Reports Configuration for @DisplayName
+   
+  mvn -Dtest=DemoUtilsTest#lineMatch test   //use this for running a sigle method in a specific test class
+  mvn -Dtest=DemoUtilsTest test  // use this to run all the test in a specific test class by maven command
