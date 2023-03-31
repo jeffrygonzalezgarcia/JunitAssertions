@@ -135,7 +135,7 @@ public class StudentAndGradeService {
 
     public GradebookCollegeStudent studentInformation(int id) {
 
-        if (!checkIfStudentIsNull(0))
+        if (!checkIfStudentIsNull(id))
             return null;
 
         Optional<CollegeStudent> student = studentDao.findById(id);
