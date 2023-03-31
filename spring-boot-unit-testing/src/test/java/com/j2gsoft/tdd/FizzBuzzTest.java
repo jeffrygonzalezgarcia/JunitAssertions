@@ -10,6 +10,14 @@ import static org.junit.jupiter.api.Assertions.fail;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class FizzBuzzTest {
 
+    FizzBuzz fb;
+
+    @BeforeEach
+    public void init(){
+        fb = new FizzBuzz();
+    }
+
+
     //If number is divisible by 3, print Fizz
     //If number is divisible by 5, print Buzz
     //If number is divisible by 3 and 5, print FizzBuzz
@@ -23,6 +31,13 @@ class FizzBuzzTest {
 
         String expected = "Fizz";
         assertEquals(expected, FizzBuzz.compute(3), "Should return Fizz");
+    }
+
+    @Test
+    public void validateAge(){
+        Integer expected = 21;
+        fb.setAge(21);
+        assertEquals(expected,fb.getAge(),"Ages should be the same");
     }
 
     @Test

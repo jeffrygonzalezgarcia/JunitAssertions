@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.luv2code.component.ApplicationExampleTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.11 s - in com.luv2code.component.ApplicationExampleTest
